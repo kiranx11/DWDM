@@ -1,0 +1,16 @@
+q1=quantile(x,.25)
+q3=quantile(x,.75)
+q1
+q3
+q4=IQR(q3-q1)
+q4
+lowerbound=q1-1.5*q4
+lowerbound
+upperbound=q3+1.5*q4
+upperbound
+boxplot(lowerbound,upperbound)
+prices=c(1,1,5,5,5,5,5,8,8,10,10,10,10,12,14,14,14,15,15,15,15,15,15,18,18,18,18,18,18,18,18,20,20,20,20,20,20,21,21,21,21,25,25,25,25,25,28,28,30,30,30)
+partitions-cut(prices,breaks=3,labels=FALSE)
+Binmeans=tapply(prices,partitions,mean)
+binmedian=tapply(prices,partitions,median)
+hist(prices,breaks=3,main="histogram of prices",xlab="prices",ylab="frequency")
