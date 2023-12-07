@@ -1,0 +1,8 @@
+cat("Jahnavi_192110556_day01/n")
+intervals <- c("1-5","5-15","15-20","20-50","50-80","80-110")
+frequencies <- c(200,450,300,1500,700,44)
+cumulative_freq <- cumsum(frequencies)
+median_interval <- intervals[which.max(cumulative_freq >= sum(frequencies) / 2)]
+bounds <- as.numeric(strsplit(median_interval, "-")[[1]])
+approx_median <- bounds[1] + diff(bounds) * ((sum(frequencies) / 2) - sum(cumulative_freq - frequencies)) / frequencies[which.max(cumulative_freq >= sum(frequencies) / 2)]
+cat("Approximate Median Value:", approx_median, "\n")
